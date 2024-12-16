@@ -1,2 +1,2 @@
 # React-challenges
-A simple react app for a warm up 
+A set of challenges of React
