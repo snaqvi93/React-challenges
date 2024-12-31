@@ -2,11 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 function App() {
-  /**
-   * Challenge: grab the employment status from the form and log it
-   * to the console. (Remember to select one of the radios before submitting)
-   * 
-   * Note: This won't work the way you might expect quite yet!
+  /** If we do not have control over the form enteries then we can Object.fromEntries to get all form data
+   function signUp(formData) {
+    const data = Object.fromEntries(formData)
+    const dietaryRestrictions = formData.getAll("dietaryRestrictions")     // this needs to be separate as it only returns the first value and we have to use .getAll to get all values
+    const allData = {
+      ...data,
+      dietaryRestrictions
+    }
+    console.log(allData)
+  }
    */
 
   function signUp(formData) {
