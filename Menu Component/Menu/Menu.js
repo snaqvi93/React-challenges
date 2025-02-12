@@ -1,23 +1,20 @@
 import React from "react"
-import MenuButton from "./MenuButton"
-import MenuDropdown from "./MenuDropdown"
+import useToggle from "../../hooks/useToggle"
 
 const MenuContext = React.createContext()
+export { MenuContext }
 
-export default function Menu({ children }) {
-    const [open, setOpen] = React.useState(false)
-
-    function toggle() {
-        setOpen(prevOpen => !prevOpen)
-    }
+export default function Menu({ children, onOpen }) {
+    const [open, toggleOpen] = useToggle({
+        initialValue: true, 
+        onToggle: onOpen
+    })
 
     return (
-        <MenuContext.Provider value={{open, toggle}}>
+        <MenuContext.Provider value={{ open, toggleOpen }}>
             <div className="menu">
                 {children}
             </div>
         </MenuContext.Provider>
     )
 }
-
-export { MenuContext }
